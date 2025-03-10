@@ -6,7 +6,7 @@ const int BTN_PIN_R = 28;
 const int LED_PIN_R = 4;
 
 volatile int flag_f_r = 0;
-volatile bool time_active = false;
+
 
 bool timer_0_callback(repeating_timer_t *rt) {
     bool current_state = gpio_get(LED_PIN_R);
@@ -35,7 +35,7 @@ int main() {
                                        &btn_callback);
 
     repeating_timer_t timer_0;
-
+    bool time_active = false;
     while (true) {
 
         if (flag_f_r) {
